@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateAvorsTable extends Migration
+class CreateTopicsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,9 @@ class CreateAvorsTable extends Migration
      */
     public function up()
     {
-        Schema::create('avors', function (Blueprint $table) {
+        Schema::create('topics', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('name',30)->default('')->comment('专题');
             $table->timestamps();
         });
     }
@@ -26,6 +27,6 @@ class CreateAvorsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('avors');
+        Schema::dropIfExists('topics');
     }
 }

@@ -118,4 +118,18 @@ class PostController extends Controller
         $post->favor(Auth::id())->delete();
         return back();
     }
+
+    public function search(){
+        //1.验证
+        $this->validate(\request(),[
+            'query'=>'required'
+        ]);
+        //2.逻辑
+        $query = \request('query');
+        $posts = Post::search($query)->paginate(6);
+
+        //3.渲染
+
+        return view('post.search',compact('posts','query'));
+    }
 }

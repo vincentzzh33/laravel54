@@ -10,6 +10,9 @@ class LoginController extends Controller
 {
 
     public function index() {
+        if (Auth::id()){
+            return redirect('/posts');
+        }
         return view('login.index');
     }
 

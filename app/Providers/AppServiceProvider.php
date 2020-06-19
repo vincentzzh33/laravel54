@@ -16,6 +16,13 @@ class AppServiceProvider extends ServiceProvider
     {
         //mb4string 4个byte对应一个 767/4=191
         Schema::defaultStringLength('191');
+        \DB::listen(function ($query){
+            $sql = $query->sql;
+            $bindings = $query->bindings;
+            $time = $query->time;//毫秒
+            //if ($time>10)
+            \Log::debug(var_export(compact('sql','bindings','time'),true));
+        });
     }
 
     /**

@@ -3,9 +3,24 @@
 namespace App\Model;
 
 use Illuminate\Database\Eloquent\Model;
+use Laravel\Scout\Searchable;
 
 class Post extends Base
 {
+    use Searchable;
+
+    //定义索引里面的type
+    public function searchableAs() {
+        return 'post';
+    }
+
+    public function toSearchableArray() {
+        return [
+            'title'   => $this->title,
+            'content' => $this->content
+        ];
+    }
+
     //当用create
     //protected $guarded = [];//不可以注入
     //protected $fillable = ['title', 'content'];//可以注入
@@ -26,7 +41,7 @@ class Post extends Base
             ->where('user_id', $user_id);
     }
 
-    public function favors(){
+    public function favors() {
         return $this->hasMany(Favor::class);
     }
 }
