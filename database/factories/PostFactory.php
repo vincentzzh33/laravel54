@@ -12,7 +12,7 @@
 */
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
-$factory->define(App\Post::class, function (Faker\Generator $faker) {
+$factory->define(App\Model\Post::class, function (Faker\Generator $faker) {
 
     $faker = Faker\Factory::create('zh_CN');
     return [
