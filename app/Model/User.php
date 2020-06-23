@@ -51,7 +51,7 @@ class User extends Authenticatable//启用auth类
     public function doUnFan($uid) {
         $fan          = new Fan();
         $fan->star_id = $uid;
-        $fan->fan_id = \Auth::id();
+        $fan->fan_id  = \Auth::id();
         return $fan->delete();
     }
 
@@ -62,4 +62,15 @@ class User extends Authenticatable//启用auth类
     public function hasStar($uid) {
         return $this->stars()->where('star_id', $uid)->count();
     }
+
+    //用户收到的通知
+    public function notices() {
+        return $this->belongsToMany(Notice::class, 'user_notice', 'user_id', 'notice_id')
+            ->withPivot(['user_id', 'notice_id']);
+    }
+
+    public function addNotice($notice){
+        return $this->notices()->save($notice);//detach
+    }
+
 }

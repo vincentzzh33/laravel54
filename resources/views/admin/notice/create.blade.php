@@ -10,22 +10,22 @@
                     <!-- /.box-header -->
                     <div class="box box-primary">
                         <div class="box-header with-border">
-                            <h3 class="box-title">增加角色</h3>
+                            <h3 class="box-title">增加通知</h3>
                         </div>
                         <!-- /.box-header -->
                         <!-- form start -->
-                        <form role="form" action="/admin/roles/store" method="POST">
+                        <form role="form" action="/admin/notices/store" method="POST">
                             {{csrf_field()}}
                             <div class="box-body">
                                 <div class="form-group">
-                                    <label for="exampleInputEmail1">角色名</label>
-                                    <input type="text" class="form-control" name="name">
+                                    <label for="exampleInputEmail1">标题</label>
+                                    <input type="text" class="form-control" name="title">
                                 </div>
                             </div>
                             <div class="box-body">
                                 <div class="form-group">
-                                    <label for="exampleInputEmail1">描述</label>
-                                    <input type="text" class="form-control" name="description">
+                                    <label for="exampleInputEmail1">内容</label>
+                                    <textarea class="form-control" name="content"></textarea>
                                 </div>
                             </div>
                             <!-- /.box-body -->

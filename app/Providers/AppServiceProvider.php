@@ -17,9 +17,13 @@ class AppServiceProvider extends ServiceProvider
     {
         //mb4string 4个byte对应一个 767/4=191
         Schema::defaultStringLength('191');
+
+
         \View::composer('layout.siderbar',function($view){
            $view->with('topics',Topic::all());
         });
+
+
         \DB::listen(function ($query){
             $sql = $query->sql;
             $bindings = $query->bindings;
