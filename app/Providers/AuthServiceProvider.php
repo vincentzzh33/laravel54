@@ -20,12 +20,12 @@ class AuthServiceProvider extends ServiceProvider
 
     /**
      * Register any authentication / authorization services.
-     *
+     *  服务提供者注册完之后
      * @return void
      */
-    public function register() {
-        $this->registerPolicies();
+    public function boot() {
 
+        $this->registerPolicies();
         $permissions = AdminPermission::all();
         foreach ($permissions as $permission) {
             Gate::define($permission->name, function ($user) use ($permission) {

@@ -20,15 +20,27 @@
     <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
     <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+    <style>
+        .blog-footer {
+            padding: 40px 0;
+            color: #999;
+            text-align: center;
+            /*background-color: #f9f9f9;*/
+            border-top: 1px solid #e5e5e5;
+            /*position: fixed;*/
+            margin-top: 50px;
+        }
+    </style>
 </head>
 <body>
 <div class="container">
     <form class="form-signin" method="POST" action="/login">
         {{csrf_field()}}
-        <h2 class="form-signin-heading">请登录</h2>
+        <h2 class="form-signin-heading text-center">请登录</h2>
         <label for="inputEmail" class="sr-only">邮箱</label>
         <input type="email" name="email" id="inputEmail" class="form-control" placeholder="Email address" required
                autofocus>
+        <br>
         <label for="inputPassword" class="sr-only">密码</label>
         <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" required>
         <div class="checkbox">
@@ -37,9 +49,18 @@
             </label>
         </div>
         @include('layout.error')
-        <button class="btn btn-lg btn-primary btn-block" type="submit">登陆</button>
-        <a href="/register" class="btn btn-lg btn-primary btn-block" type="submit">去注册</a>
+        <div class="row">
+            <div class="col-lg-6">
+                <button class="btn btn-lg btn-primary btn-block" type="submit">登陆</button>
+
+            </div>
+            <div class="col-lg-6">
+                <a href="/register" class="btn btn-lg btn-primary btn-block" type="submit">去注册</a>
+
+            </div>
+        </div>
     </form>
+    @include('layout.footer')
 </div> <!-- /container -->
 </body>
 </html>

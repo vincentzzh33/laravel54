@@ -11,18 +11,18 @@
                 </ol><!-- Wrapper for slides -->
                 <div class="carousel-inner">
                     <div class="item active">
-                        <img src="http://images.love-wendy.top/2019/06/8520e0966630cebba4c9bd48dead1ec1649.jpg"
-                             alt="..." style="height: 300px"/>
+                        <img src="http://images.love-wendy.top/img8.jpg"
+                             alt="..." />
                         <div class="carousel-caption">...</div>
                     </div>
                     <div class="item">
-                        <img src="http://images.love-wendy.top/2019/06/8520e0966630cebba4c9bd48dead1ec1649.jpg"
-                             alt="..." style="height: 300px"/>
+                        <img src="http://images.love-wendy.top/img7.jpg"
+                             alt="..." />
                         <div class="carousel-caption">...</div>
                     </div>
                     <div class="item">
-                        <img src="http://images.love-wendy.top/2019/06/8520e0966630cebba4c9bd48dead1ec1649.jpg"
-                             alt="..." style="height: 300px"/>
+                        <img src="http://images.love-wendy.top/img12.jpg"
+                             alt="..." />
                         <div class="carousel-caption">...</div>
                     </div>
                 </div>
