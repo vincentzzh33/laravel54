@@ -21,7 +21,7 @@ Route::group(['middleware' => 'auth:web'], function () {
     Route::get('/', 'LoginController@index');
     Route::get('/logout', 'LoginController@logout');
     Route::get('/user/me/setting', 'UserController@setting');
-    Route::post('/user/me/setting', 'UserController@settingStore');
+    Route::post('/user/{user}/setting', 'UserController@settingStore');
     Route::get('/posts', 'PostController@index');//文章列表页
     Route::get('/posts/create', 'PostController@create');//创建文章
     Route::post('/posts', 'PostController@store');

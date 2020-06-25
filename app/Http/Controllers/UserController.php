@@ -9,14 +9,21 @@ use App\Model\User;
 
 class UserController extends Controller
 {
-
-    public function setting() {
-
-        return view('user.setting');
+    public function setting(User $user) {
+        return view('user.setting', compact('user'));
     }
 
-    public function settingStore() {
-
+    public function settingStore(User $user) {
+        $this->validate(request(), [
+            'name'   => 'required|min:3',
+            'avatar' => 'required|file'
+        ]);
+        $path         = request()->file('avatar')->storePublicly(md5(time()));
+        $user         = User::find($user->id);
+        $user->name   = request('name');
+        $user->avatar = $path;
+        $user->save();
+        return back();
     }
 
     public function show(User $user) {

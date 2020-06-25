@@ -22,7 +22,13 @@
             <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown">
                     <div>
-                        <img src="http://images.love-wendy.top/2019/06/1ef2b2cd05760ced45447bc97fb8f510803.png" alt="" class="img-rounded" style="border-radius:500px; height: 30px">
+                        <img
+                                @if(Auth::user()->avatar)
+                                src="/storage/{{Auth::user()->avatar}}"
+                                @else
+                                src="/image/default.jpg"
+                                @endif
+                                alt="" class="img-rounded" style="border-radius:500px; height: 30px">
                         <a href="#" class="blog-nav-item dropdown-toggle" data-toggle="dropdown" role="button"
                            aria-haspopup="true" aria-expanded="false">
                             {{Auth::user()->name}}
